@@ -173,8 +173,7 @@ public class JdbcAnonymizerService {
 			LOG.debug(select);
 
 			statement = connection.createStatement(resultSetType, resultSetConcurrency);
-			statement.execute(select);
-			results = statement.getResultSet();
+			results = statement.executeQuery(select);
 			ResultSetMetaData resultsMetaData = results.getMetaData();
 
 			if (results.getConcurrency() != resultSetConcurrency) {
